@@ -74,7 +74,13 @@ display weights
 display (restrict (animals) (animal='21'))
 
 # 11. GET brown animals
+
+display (restrict (animals) (color='brown'))
+
 # 12. GET animal 25 or brown animals
+
+display (restrict (animals) (animal='25') or (color='brown'))
+
 # 13. PROJECT color AND sex FROM animals
 # 14. PROJECT color AND sex FROM animals FOR animal 13 (HINT: USE temp.tbl)
 # 15. Find records of animals  BASED ON animal > 13
