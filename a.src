@@ -82,7 +82,13 @@ display (restrict (animals) (color='brown'))
 display (restrict (animals) (animal='25') or (color='brown'))
 
 # 13. PROJECT color AND sex FROM animals
+
+display (project (animals) (color,sex))
+
 # 14. PROJECT color AND sex FROM animals FOR animal 13 (HINT: USE temp.tbl)
+
+display (project (select (animals) (animal='13')) (color,sex))
+
 # 15. Find records of animals  BASED ON animal > 13
 # 16. UNION animals WITH ITSELF
 # 17. JOIN animals AND rooms BASED ON animal
@@ -96,11 +102,11 @@ display (restrict (animals) (animal='25') or (color='brown'))
 # 24. UPDATE : write animals (make a new animals table) BY CHANGING ALL sex TO f
     [ Save the animals file as s26 (s26 = duplicate (animals) ) ]
 # 25. REPEAT 24.
-# 26. UPDATE all animals 
+# 26. UPDATE all animals
 # 27. DELETE  animal 22 AND 89 FROM animals   ( Hint : help delete )
 # 28.  Delete all temporary files, and load initial animals, rooms, weights.
 # 29.  31. GET THE SEX WHICH CAN BE FOUND IN ALL ROOMS (HINT: USE join, projject, divide)
 # 30.   GET THE LARGEST ANIMAL NUMBER IN ANIMALS.TBL (HINT: USE duplicate, rename,
 # 31.  Show Color and weight of animals in room R1 (Hint : use join and restrict )
-# 32.  Show a list of animals in room R1 
+# 32.  Show a list of animals in room R1
 # 33. (a) Find animal with animal < 25.
