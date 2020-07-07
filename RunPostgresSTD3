@@ -1,0 +1,82 @@
+
+
+1. For using Postgres,
+    1.  Make a directory  PGDB   (  mkdir  ~/PGDB ;  cd PGDB )
+    2.  make a file myNotes ; 
+        write the following, in this file 
+        (i), (ii), (iii), (iv), (v)
+
+   Notes:   
+  ----------
+(i)  User Id -   s1220XXX  ( your id )
+  
+(ii) Database area for User:  dbs1220XXX  ( 'db' + your Id ) 
+
+(iii) PORT:  a= your ex room, 
+             b= 7             
+             XX=workstation last digits for setup
+
+         PORT:  37XX  [ex. std3 period 7](XX is last number of workstation) 
+     or, PORT:  47XX  [ex. std4 period 7]( XX -   01, 02, ...34, 99 )
+
+ (iv) Work Directory for Database :   PGDB
+
+ (v)  Work Database name :   s1240XXX
+
+
+[ FIRST TIME ]
+
+mkdir ~/PGDB
+cd PGDB
+
+initdb dbs1220XXX
+
+[change port:   ( find a file 'postgresql.conf ' in the subdirectoriues )
+ edit one line in the file:   ~s1220XXX/PGDB/dbs1220XXX/postgresql.conf  ]
+ ( delete # and change port abxx )
+
+ Change Line -->> 
+ [  #port 5432  =>   port  abXX  ( XX is last 2 digit of workstation at setup)  ]
+ as-    port abxx 
+
+
+[start server]
+pg_ctl -D dbs1220XXX  -l logfile start
+
+[create database]
+createdb -p abXX  s1220XXX         (FIRST TIME onlly)
+
+[Use Postgres DBMS software at port abXX ]
+psql -p abXX  s1220XXX
+
+
+[shutdown]
+
+pg_ctl -D dbs1220XXX  stop
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    After FIRST time ( Next time onwards -  every week )
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Step 1: Change to Work Directory
+
+     cd ;  cd PGDB
+
+Step 2:  start Database service:
+
+pg_ctl -D dbs1220XXX  -l logfile start
+
+
+Step 3: Use PostgreSQL at port abXX
+
+psql -p abXX  s1220XXX 
+
+
+Step 4: After postgres work is finished, PLEASE SHUT DOWN SERVER
+
+pg_ctl -D dbs1220XXX  stop
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+

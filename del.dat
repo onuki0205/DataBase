@@ -1,0 +1,14 @@
+# Command file for deleting temporary files
+#
+delrel t1
+delrel t2
+delrel temp
+delrel temp1
+delrel temp2
+delrel temp3
+delrel temp4
+delrel temp5
+delrel temp6
+delrel temp7
+delrel temp8
+

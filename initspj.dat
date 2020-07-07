@@ -1,0 +1,33 @@
+# Command File for create SPJ table
+#
+relation (spj) ((snum,string,4),(pnum,string,4),(jnum,string,4),(qty,integer,4))
+
+# Command File for J table 
+#
+add (spj) (S1,P1,J1,200)
+add (spj) (S1,P1,J4,700)
+add (spj) (S2,P3,J1,400)
+add (spj) (S2,P3,J2,200)
+add (spj) (S2,P3,J3,200)
+add (spj) (S2,P3,J4,500)
+add (spj) (S2,P3,J5,600)
+add (spj) (S2,P3,J6,400)
+add (spj) (S2,P3,J7,800)
+add (spj) (S2,P5,J2,100)
+add (spj) (S3,P3,J1,200)
+add (spj) (S3,P4,J2,500)
+add (spj) (S4,P6,J3,300)
+add (spj) (S4,P6,J7,300)
+add (spj) (S5,P2,J2,200)
+add (spj) (S5,P2,J4,100)
+add (spj) (S5,P5,J5,500)
+add (spj) (S5,P5,J7,100)
+add (spj) (S5,P6,J2,200)
+add (spj) (S5,P1,J4,100)
+add (spj) (S5,P3,J4,200)
+add (spj) (S5,P4,J4,800)
+add (spj) (S5,P5,J4,400)
+add (spj) (S5,P6,J4,500)
+
+change spj
+

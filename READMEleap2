@@ -1,0 +1,60 @@
+
+
+file:///home/professor/w-chu/pub/db/help1.txt
+
+◎ Exercise 1:(P4,5) no submission
+ P4. interactive commands in leap
+ 
+ P5. run leap commands by using a file  (.src)
+     mkdir ~/DB
+     cd DB
+     mkdir src   // make folder in your home
+     cd src
+     emacs animals.src &    // edit a leap command file, input leap commands .
+                            // add more data by referring
+			    // sample /public/public/db2/AnimalsSample.dat
+			    
+      ------------------------------------------------
+      relation(animals)((animal,string,6),(sex,string,4),(color,string,5)) 
+      add (animals) (13,m,brown)
+      add (animals) (21,m,brown)
+      add (animals) (22,m,black)
+      .........
+     -------------------------------------
+
+     cp animals.src to ~/leap-1.2.5.2/database/date/source/animals.src
+
+     cd ~/leap-1.2.5.2 
+      ./run
+     use date
+     sources          // all .src files in ~/leap-1.2.5.2/database/date/source
+     l animals        // show animals.src content
+     @ animals        // run command file animals.src
+
+
+IV. Homework1 P6-8 
+◎ Homework 1:  submit next week class(Thu.)
+
+  Q1:
+	(a) tuple → table 一件の大きさ ハンドアウト参照。
+	(b)(c) cardinality, degree: database の行と列を表します。
+				   どちらが ハンドアウト参照。
+	(d) database の要素の属性
+	(e), (f) ハンドアウト参照
+	
+  Q2:	i), ii) Q1の database から Teachers と Students 二つ テーブル をつくる, 問題を答える。
+  	i), ii), iii) Q1の database から Teachers と Classes 二つ テーブル をつくる, 問題を答える
+
+  Q3:	→ Q1参照
+
+  Q4:	→ (database: Courses)Q1参照, (database: Teachers + Classes)Q3参照。
+
+           note : one student studies 50 courses;
+	          one course is taught by one teacher;
+	   
+           database size of Courses=
+           database size of Teachers + Classes =
+
+  Q5:	databaseのサイズに依存するのでdatabase size 値の小さいものが早い
+
+

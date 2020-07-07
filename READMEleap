@@ -1,0 +1,86 @@
+
+
+For exercise 1
+
+  a) There is no submission (this week).
+     But, please complete the exercise 
+     (slides-  2,3,4,5 in OHP1ex.ps)
+     otherwise, 
+     without using leap sofware, next exercise 
+     may be difficult.
+
+  b) Homework must be completed by next week
+     ( in slides  6,7,8 ).
+     This is done by writing  (not on leap).
+
+
+  c) Exercise 1:
+
+     Steps [ slides  2, 3, 4, 5 ]:
+    --------
+     > cd  to course directory  /public/public/db2
+     > cp -rf leap-1.2.5.2  ~/.
+         ( leap sofware is in directory leap-1.2.5.2 
+           in home directory)
+     > cd ~/leap-1.2.5.2
+     > ./run
+
+     Leap sofware has a Database ( Name 'date' )
+     LEAP> use date
+     LEAP> list
+     LEAP> quit
+
+     Always work in directory "leap-1.2.5.2" for leap
+
+    > ./run
+    LEAP> help index   ( see a list of all LEAP commands)
+    LEAP> help project  ( read details of project command
+
+
+    LEAP>use date
+    LEAP>project (s)(sname) 
+
+    LEAP>help describe
+
+    LEAP> describe s
+
+    LEAP>help display
+
+    LEAP> display s
+
+    [ complete slide 3 steps, and go to slide  4 ]  
+
+    at step 3, please create a new table in "date" database
+
+   at steps 6 . 7 . 8  add  data to new table "animals"
+
+    [ complete slide 4 steps, and go to slide  5 ]
+
+    Step 1. Please use emacs or vi to create a file 
+    with data for creating "animals" table 
+
+    Step 1. Please use emacs or vi to create a file 
+    with data for creating "animals" table .
+
+    >delrel animals
+
+    vi animals.dat ( and save the file )
+relation(animals)((animal,string,6),(sex,string,4),(color,string,5))
+add (animals) (13,m,brown)
+add (animals) (21,m,brown)
+add (animals) (22,m,black)
+
+    IN slide  5, there is home directory 'leap',:
+    Therefore, please change directory in line 6, as
+
+     cp animals.dat database/date/source/animals.src
+
+     This exercise create a new table "animals"
+   through a script in file animals.dat.
+
+  Please try.
+
+ DO  'Home work 1' in slides 6-7 by writing  and submit by using 
+      MOODLE - Deadline:   next Lecture class (on Monday).
+
+

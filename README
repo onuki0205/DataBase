@@ -1,0 +1,55 @@
+
+
+README:  (directory for files - /public/public/db2 )
+
+DATABASE SYSTEMS COURSE  ( last updated-  30 June 2020 )
+-----------------------
+
+ This directory -->  files for PART I (Database Systems)
+ ----------------------------------------------------------
+        For the exercise classes :
+      - Please use a dictionary (English-Japanese-English)
+
+1.  sch.pdf, sch.ps  -  introduction and schedule for the course
+
+1.(a)For help with exercise classes, 
+
+     please contact Class Teaching Assistants (TAs) -
+
+    m5241120 Miyuka Nakamura      [std3] Mon,Thu 7,8  (bhalla)
+    m5241126 Sano Shogo           [std3] Mon,Thu 7,8  (bhalla)
+    d8202102 Rashmi Sarode        [std4] Mon,Thu 7,8  (w-chu )
+
+
+2. Exercise and Lecture slides
+   --------------------------- 
+   OHP1ex.ps - problems for exercises in exercise class
+               (75 OHPs -  print BOTH SIDES  in 'xlpr')
+
+   OHP1.ps  - Lecture OHPs
+                (200 OHPs -  print BOTH sides   in 'xlpr')
+
+  Other  Data Files
+  ------------------
+   Source Files  : Animals.dat
+                   initj.dat ( J Table ),   initspj.dat ( SPJ Table)
+
+   Help Files    :  del.dat(delete temporary files in leap);
+
+   Fruit-export Database Exercise: fruits.list 
+
+*************************************************************
+   PRINTER ( on  std3pr1/2, std4pr1/2  ):
+   --------------------
+   xlpr :: Please use
+                       1.  Print   - bothside
+           File Name   -   /public/public/db2/OHP1.ps
+                           /public/public/db2/OHP1ex.ps
+
+   For Display 'xdvi' ::
+   Screen  :     xdvi -paper a4r /public/public/db2/OHP1.dvi
+   --------      xdvi -paper a4r /public/public/db2/OHP1ex.dvi
+                     (for display use 'xdvi -paper a4r OHP1'
+                      or use shell file 'vu', or 'vuex' for OHP1ex.dvi).
+
+***********************************************************************

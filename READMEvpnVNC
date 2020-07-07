@@ -1,0 +1,38 @@
+VPN  and   VNC   installation:
+Please read the information at the following  URLs:
+(1)   VNCê⁄ë±Ç≈ÇÃâìäuóòóp(Windows, macOS, Linux) - Japanese page from ISTC
+  https://web-int.u-aizu.ac.jp/labs/istc/ipc/release/desktop/remote/index.html#vnc
+(2)    - Remote use with VNC connection(Windows, macOS, Linux) - English page from ISTC
+  https://web-int.u-aizu.ac.jp/labs/istc/ipc/release/desktop/remote/index-e.html
+
+1. VPN setting
+   VPN(Virtual Private Network) server provide safer access On-campus network from the outside of this university.
+   Please set up VPN referring to the following ISTC page.
+   https://web-int.u-aizu.ac.jp/labs/istc/ipc/service/ains-vpn/vpn-e.html(English page)
+      https://web-int.u-aizu.ac.jp/labs/istc/ipc/service/ains-vpn/vpn.html(Japanese page)
+2. VNC Server Softrware Installation
+   The following software are the VNC Server Client Viewer.
+   Please select one of them to download and install.
+      a) RealVNC (Windows,macOS)
+      https://www.realvnc.com/en/connect/download/viewer/
+        b) TigerVNC(Windows, macOS)
+      https://github.com/TigerVNC/tigervnc/releases
+      Binaries are available from bintray:
+      https://bintray.com/tigervnc/stable/tigervnc/1.10.1
+      windows: tigervnc-1.10.1.exe
+      mac :    TigerVNC-1.10.1.dmg
+      After installation, VNC Viewer icon will be on Desktop
+3. VNC Internal Server Host-Name
+    vncint1.u-aizu.ac.jp
+       vncint2.u-aizu.ac.jp
+4. Remote use
+   By connecting to the university with a VPN (Virtual Private Network) outside UoA from your PC and connection to VNC server, you can operate the same desktop screens as in Computer Exercise Room 1 to 4.
+   a) First connecting to the university with a VPN (Virtual Private Network) from a Windows PC or macbook from home.
+      i. click GlobalProtect icon
+     ii. click Connection
+    iii. login, connect
+      b) Connection with VNC
+      i. click VNC Viewer icon
+     ii. input vnc server Host-Name
+    iii. continue
+     iV. login

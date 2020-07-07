@@ -1,0 +1,52 @@
+
+
+
+ Example: Use the 4 line 
+          program, as shown,
+          FOR  CREATING the Following 3 database Relations  -->
+
+relation(animals)((animal,string,6),(sex,string,4),(color,string,5))
+add (animals) (13,m,brown)
+add (animals) (21,m,brown)
+add (animals) (22,m,black)
+
+
+  
+
+   Relation: animals
+
+         animal            sex          color
+             13              m          brown
+             21              f          brown
+             22              m          black
+             23              m          brown
+             25              f          black
+             36              f          black
+             88              m          black
+             92              f          brown
+            101              f          brown
+
+
+    Relation:  rooms
+
+         animal           room            box
+             13             R2             B6
+             21             R1             B7
+             22             R1             B6
+             23             R1             B7
+             25             R8            B11
+             36             R9             B7
+             88             R1             B6
+             92             R8            B11
+            101             R2             B6
+
+
+    Relation: weights
+         animal         weight
+             13             50
+             22             60
+             23             53
+             25             50
+             92             70
+
+

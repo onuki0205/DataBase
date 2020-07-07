@@ -1,0 +1,18 @@
+# Command file for Creating j table
+#
+relation (j) ((jnum,string,4),(jname,string,7),(city,string,10))
+
+
+# Command File to add data for J table 
+#
+add (j) (J1,SORTER,PARIS)
+add (j) (J2,DISPLAY,ROME)
+add (j) (J3,OCR,ATHENS)
+add (j) (J4,CONSOLE,ATHENS)
+add (j) (J5,RAID,LONDON)
+add (j) (J6,EDS,OSLO)
+add (j) (J7,TAPE,LONDON)
+
+change j
+
+

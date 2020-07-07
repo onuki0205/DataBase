@@ -1,0 +1,101 @@
+
+
+file:///home/professor/w-chu/pub/db/help.txt
+
+I. Course directory: /public/public/db2
+    - exercise schedule:        /public/public/db2/sch.pdf
+    - course materials: OHP1.ps(lec. partI), OHP1ex.ps(ex. partI)
+    - README : print method for OHP1.ps, OHP1ex.ps
+    - leap-1.2.5.2 : leap software
+    - READMEvpnVNC : remote access environment installation
+    
+II. Submission(next week, see moodle deadline information)
+    hw + ex : moodle
+
+    LMS in university of Aizu : https://elms.u-aizu.ac.jp/login/index.php
+
+    submission file format: txt/pdf/zip,
+                            e.g. report1.txt
+
+III. ex(20) + hw(10) of partI and partII : 30 points
+    - leap software(partI)       
+    - postgreSQL software(partII)
+    - submission cut off deadline(see schedule)
+
+IV. ExerciseOHP1ex.ps(part I)
+
+show : gv /public/public/db2/OHP1ex.ps
+
+print: more /public/public/db2/README
+
+
+V. Using leap software:
+
+1. Installation (ExerciseOHP1ex.ps P.2)
+cd /public/public/db2
+cp -rf leap-1.2.5.2  ~/.
+
+2. run leap
+cd ~/leap-1.2.5.2 
+./run
+use date            // using date database
+list                // list tables
+quit
+
+
+#if leap doesn't work please do: (ExerciseOHP1ex.ps P.3)
+cd ~/leap-1.2.5.2 
+./reinstall              // before reinstall, please keep your .src to some else folder
+
+leap command:
+help index      // all commands
+help use        // use command
+
+commands: use, list, relation, describe, add, display, change, delrel
+
+
+---------------------------------------------------------------------
+- URL: LEAP RDBMS http://leap.sourceforge.net/
+
+- Method of using leap in your home
+
+  1. windows version, download, leap-bin,1.2.5. winleap-1.2.5.zip
+
+
+
+- Remote access
+
+    1. VPN + VNC(/public/public/db2/READMEvpnVNC)
+     
+       https://web-int.u-aizu.ac.jp/labs/istc/ipc/release/desktop/remote/index.html#vnc
+
+    2. Open ssh
+    
+       ssh -Y youraccount@sshgage.u-aizu.ac.jp
+
+    3. Transfer files from/to workstation
+
+       sftp youraccount@sshgage.u-aizu.ac.jp
+
+       cd to folder
+
+       get file      //get from ws
+       put file      // put to ws
+
+       mget          // multiple files
+       mput   
+-------------------------------------------------------------------------------------
+
+- Attendance by moodle
+
+1. click 出欠
+
+2. click 出欠送信
+
+3. click 出席/ 遅刻/ 早退 /欠席
+
+4. 保存
+
+5. 確認
+
+
