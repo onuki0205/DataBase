@@ -1,0 +1,100 @@
+# 1. DESTROY OLD TABLES  animals, rooms, weights
+
+delrel animals
+delrel rooms
+delrel weights
+
+# 2.(a) CREATE NEW TABLES  animals
+
+relation (animals) ((animal,string,6),(sex,string,4),(color,string,5))
+
+# 2.(b) CREATE NEW TABLES  rooms
+
+relation (rooms) ((animal,string,6),(room,string,4),(box,string,5))
+
+# 2.(c) CREATE NEW TABLES  weights
+
+relation (weights) ((animal,string,6),(weight,string,6))
+
+# 3. FIELDS FOR TABLE animals (show details)
+
+describe animals
+
+# 4. FIELDS FOR TABLE rooms
+
+describe rooms
+
+# 5. FIELDS FOR TABLE weights
+
+describe weights
+
+
+# 6. INSERT DATA
+
+add (animals) (13,m,brown)
+add (animals) (21,f,brown)
+add (animals) (22,m,black)
+add (animals) (23,m,brown)
+add (animals) (25,f,black)
+add (animals) (36,f,black)
+add (animals) (88,m,black)
+add (animals) (92,f,brown)
+add (animals) (101,f,brown)
+
+add (rooms) (13,R2,B6)
+add (rooms) (21,R1,B7)
+add (rooms) (22,R1,B6)
+add (rooms) (23,R1,B7)
+add (rooms) (25,R8,B11)
+add (rooms) (36,R9,B7)
+add (rooms) (88,R1,B6)
+add (rooms) (92,R8,B11)
+add (rooms) (101,R2,B6)
+
+add (weights) (13,50)
+add (weights) (22,60)
+add (weights) (23,53)
+add (weights) (25,50)
+add (weights) (92,70)
+
+# 7. GET ALL RECORDS FROM animals
+
+display animals
+
+# 8. GET ALL RECORDS FROM rooms
+
+display rooms
+
+# 9. GET ALL RECORDS FROM weights
+
+display weights
+
+# 10. GET animal 21 FROM animals
+
+display (restrict (animals) (animal='21'))
+
+# 11. GET brown animals
+# 12. GET animal 25 or brown animals
+# 13. PROJECT color AND sex FROM animals
+# 14. PROJECT color AND sex FROM animals FOR animal 13 (HINT: USE temp.tbl)
+# 15. Find records of animals  BASED ON animal > 13
+# 16. UNION animals WITH ITSELF
+# 17. JOIN animals AND rooms BASED ON animal
+# 18. JOIN animals AND weights BASED ON animal
+# 19. JOIN rooms AND weights BASED ON animal
+# 20. JOIN ALL TABLES TOGETHER BASED ON animal (HINT: USE temp.tbl)
+# 21. PROJECT  box AND color for animals in rooms (HINT: FIRST DO A JOIN)
+
+# 22. PROJECT room AND box FOR animals WITH 51<weight<80 (HINT: USE temp.tbl,temp1.tbl)
+# 23. PROJECT weight OF brown animals IN room R1 (HINT: USE temp.tbl,temp1.tbl,temp2.tbl)
+# 24. UPDATE : write animals (make a new animals table) BY CHANGING ALL sex TO f
+    [ Save the animals file as s26 (s26 = duplicate (animals) ) ]
+# 25. REPEAT 24.
+# 26. UPDATE all animals 
+# 27. DELETE  animal 22 AND 89 FROM animals   ( Hint : help delete )
+# 28.  Delete all temporary files, and load initial animals, rooms, weights.
+# 29.  31. GET THE SEX WHICH CAN BE FOUND IN ALL ROOMS (HINT: USE join, projject, divide)
+# 30.   GET THE LARGEST ANIMAL NUMBER IN ANIMALS.TBL (HINT: USE duplicate, rename,
+# 31.  Show Color and weight of animals in room R1 (Hint : use join and restrict )
+# 32.  Show a list of animals in room R1 
+# 33. (a) Find animal with animal < 25.
