@@ -1,0 +1,62 @@
+Exercise Class 1 : Home work
+
+author : s1260027 Onuki Shunsuke
+
+Q1
+(a) size of the tuple: 6 + 8 + 8 + 8 + 4 = 34
+    size of the database: 34 * 5 = 170
+(b) 5
+(c) 5
+(d) COURSE, TEACHER, SNO, SNAME, GRADE
+(e) no
+(f) Smith, Billard
+
+Q2
+Courses0
+Teachers (COURSE, TEACHER)    Students (SNO,      SNAME,     GRADE)
+         -----------------             ---------------------------- 
+          OS      Smith                 s102000   NakaMura   A
+          DB      Smith                 s201000   Kato       B
+          SE      Billard               s102000   NakaMura   B
+         -----------------              s201000   Kato       C
+                                       ---------------------------- 
+
+(i) No
+(ii) cannot find.
+(iii) Courses1
+      Teachers (COURSE, TEACHER)     Classes (COURSE,      SNO,      SNAME,      GRADE)
+               -----------------             ------------------------------------------ 
+                OS      Smith                 OS           s102000   NakaMura    A
+                DB      Smith                 DB           s102000   NakaMura    A
+                SE      Billard               DB           s201000   Kato        B
+               -----------------              SE           s102000   NakaMura    B
+                                              SE           s201000   Kato        C
+                                             ------------------------------------------
+
+
+      (i) Yes
+      (ii) Smith, Billard
+      yes
+
+Q3
+(a)
+                      Teachers             |       Classes
+                      ------------------------------------------------------
+    size of tuple     6 + 8 = 14           |       6 + 8 + 8 + 4 = 26
+    size of database  14 * 3 = 32          |       26 * 5 = 130
+    Cardinality       3                    |       5
+    degree            2                    |       4
+    attributes        COURSE, TEACHER      |       COURSE, SNO, SNAME, GRADE
+                      ------------------------------------------------------
+(b) Nothing
+
+Q4
+                       "Teachers" and "Classes"     |     "Classes"
+                       ----------------------------------------------------------
+    size of tuple      14 + 26 = 40                 |     26
+    size of database   50 * 14 + 1000 * 50 * 26     |     1000 * 50 * 26
+                        = 1300700                   |       = 1300000
+                       ----------------------------------------------------------
+
+Q5
+    "Teachers" + "Classes"

@@ -83,30 +83,190 @@ display (restrict (animals) (animal='25') or (color='brown'))
 
 # 13. PROJECT color AND sex FROM animals
 
-display (project (animals) (color,sex))
+display(project (animals) (color,sex))
 
 # 14. PROJECT color AND sex FROM animals FOR animal 13 (HINT: USE temp.tbl)
 
-display (project (select (animals) (animal='13')) (color,sex))
+display(project(select (animals) (animal='13')) (color,sex))
 
 # 15. Find records of animals  BASED ON animal > 13
+
+display(restrict (animals) (animal > '13'))
+
 # 16. UNION animals WITH ITSELF
+
+display((animals) union (animals))
+
 # 17. JOIN animals AND rooms BASED ON animal
+
+display(join (animals) (rooms) (animals.animal=rooms.animal))
+
 # 18. JOIN animals AND weights BASED ON animal
+
+display(join (animals) (weights) (animals.animal=weights.animal))
+
 # 19. JOIN rooms AND weights BASED ON animal
+
+display(join (rooms) (weights) (rooms.animal=weights.animal))
+
 # 20. JOIN ALL TABLES TOGETHER BASED ON animal (HINT: USE temp.tbl)
+
+
+temp = join (animals) (rooms) (animals.animal = rooms.animal)
+display (join (temp) (weights) (temp.animal = weights.animal))
+delrel temp
+
 # 21. PROJECT  box AND color for animals in rooms (HINT: FIRST DO A JOIN)
 
+display (project (join (rooms) (animals) (rooms.animal=animals.animal)) (box,color))
+
 # 22. PROJECT room AND box FOR animals WITH 51<weight<80 (HINT: USE temp.tbl,temp1.tbl)
+
+display (project (restrict (join (rooms) (weights) (rooms.animal=weights.animal)) ((weight > '51') and (weight < '80'))) (room,box))
+
 # 23. PROJECT weight OF brown animals IN room R1 (HINT: USE temp.tbl,temp1.tbl,temp2.tbl)
+
+temp = join (animals) (rooms) (animals.animal = rooms.animal)
+display (project (restrict (join (temp) (weights) (temp.animal = weights.animal)) ((color='brown') and (room='R1'))) (weight))
+delrel temp
+
 # 24. UPDATE : write animals (make a new animals table) BY CHANGING ALL sex TO f
-    [ Save the animals file as s26 (s26 = duplicate (animals) ) ]
+#[ Save the animals file as s26 (s26 = duplicate (animals) ) ]
+
+temp = duplicate(animals)
+display (update (temp) (sex='m') (sex='f'))
+delrel temp
+
 # 25. REPEAT 24.
+
+temp = duplicate (animals)
+display (update (temp) (sex='m') (sex='f'))
+delrel animals
+animals = duplicate(temp)
+delrel copy_animals
+
 # 26. UPDATE all animals
+
+temp = duplicate (animals)
+update (temp) () (color='black')
+update (temp) (animal='101') (animal='102')
+update (temp) (animal='92') (animal='93')
+update (temp) (animal='88') (animal='89')
+update (temp) (animal='36') (animal='37')
+update (temp) (animal='25') (animal='26')
+update (temp) (animal='23') (animal='24')
+update (temp) (animal='22') (animal='23')
+update (temp) (animal='21') (animal='22')
+update (temp) (animal='13') (animal='14')
+display (temp)
+
+
 # 27. DELETE  animal 22 AND 89 FROM animals   ( Hint : help delete )
+
+display (delete (temp) ((animal='22') or (animal='89')))
+
 # 28.  Delete all temporary files, and load initial animals, rooms, weights.
-# 29.  31. GET THE SEX WHICH CAN BE FOUND IN ALL ROOMS (HINT: USE join, projject, divide)
+
+delrel temp
+delrel animals
+delrel rooms
+delrel weights
+relation (animals) ((animal,string,6),(sex,string,4),(color,string,5))
+relation(rooms)((animal,string,6),(room,string,4),(box,string,5))
+relation(weights)((animal,string,6),(weight,string,6))
+add (animals) (13,m,brown)
+add (animals) (21,f,brown)
+add (animals) (22,m,black)
+add (animals) (23,m,brown)
+add (animals) (25,f,black)
+add (animals) (36,f,black)
+add (animals) (88,m,black)
+add (animals) (92,f,brown)
+add (animals) (101,f,brown)
+add(rooms)(13, R2, B6)
+add(rooms)(21, R1, B7)
+add(rooms)(22, R1, B6)
+add(rooms)(23, R1, B7)
+add(rooms)(25, R8, B11)
+add(rooms)(36, R9, B7)
+add(rooms)(88, R1, B6)
+add(rooms)(92, R8, B11)
+add(rooms)(101, R2, B6)
+add(weights)(13, 50)
+add(weights)(22, 60)
+add(weights)(23, 53)
+add(weights)(25, 50)
+add(weights)(92, 70)
+display (animals)
+display (rooms)
+display (weights)
+
+# 29.  31. GET THE SEX WHICH CAN BE FOUND IN ALL ROOMS (HINT: USE join, project, divide)
+
+display (sql_divide (join (animalls) (rooms) (animals.animal = rooms.animal)) (project (join (animalls) (rooms) (animals.animal = rooms.animal)) (sex)))
+
+
 # 30.   GET THE LARGEST ANIMAL NUMBER IN ANIMALS.TBL (HINT: USE duplicate, rename,
+
+temp1 = project(animals)(animal)
+temp2 = project(animals)(animal)
+rename(temp2.animal)(animal2)
+temp3 = (temp1)product(temp2)
+temp4 = project(restrict(temp3)(animal < animal2))(animal)
+temp5 = project(animals)(animal)
+temp6 = (temp5)minus(temp4)
+display(rename(temp6.animal)(MAX))
+delrel temp1
+delrel temp2
+delrel temp3
+delrel temp4
+delrel temp5
+delrel temp6
+
 # 31.  Show Color and weight of animals in room R1 (Hint : use join and restrict )
-# 32.  Show a list of animals in room R1
-# 33. (a) Find animal with animal < 25.
+
+temp = restrict(rooms)(room='R1')
+temp1 = join(animals)(temp)(animals.animal = temp.animal)
+temp2 = join(temp1)(weights)(temp1.animal = weights.animal)
+display(project(temp2)(room, color, weight))
+delrel temp
+delrel temp1
+delrel temp1
+
+# 32.  Show a list of animals in room R1 
+
+temp = restrict(rooms)(room='R1')
+display(project(temp)(room,animal))
+delrel temp
+
+# 33. (a) Find animal with animal < 25
+display(animals)
+display(restrict(animals)(animal<'25'))
+
+# (b) Change data in animals table.
+delrel animals
+relation(animals)((animal,integer,6),(sex,string,4),(color,string,5))
+add (animals) (000013, m, brown)
+add (animals) (000021, f, brown)
+add (animals) (000022, m, black)
+add (animals) (000023, m, brown)
+add (animals) (000025, f, black)
+add (animals) (000036, f, black)
+add (animals) (000088, m, black)
+add (animals) (000092, f, brown)
+add (animals) (000101, f, brown)
+display(animals)
+
+# (c) Find animal with animal < 25
+delrel animals
+relation(animals)((animal,integer,6),(sex,string,4),(color,string,5))
+add (animals) (13, m, brown)
+add (animals) (21, f, brown)
+add (animals) (22, m, black)
+add (animals) (23, m, brown)
+add (animals) (25, f, black)
+add (animals) (36, f, black)
+add (animals) (88, m, black)
+add (animals) (92, f, brown)
+add (animals) (101, f, brown)
+display(restrict(animals)(animal<'25'))
