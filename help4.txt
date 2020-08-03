@@ -1,0 +1,32 @@
+file:///home/professor/w-chu/pub/db/help4.txt
+
+◎ Exercise 4(P17)
+   questions see /public/public/db2/OHP1.ps(OHP72-145)
+   seta(1,4,7,0), setb(2,5,8), setc(others)
+   ref Expression sample in OHP1 (e.g. OHP1 P73, P75)
+   edit  ex4.src for your answer of (seta/setb/setc)
+
+◎ Homework 4  a-e
+
+1. domain relational calculus
+
+   a) ref OHP 69==> restrict, project,
+              70==> restrict,
+              71==> project, restrict, and join
+
+   b) link -> file:///home/professor/w-chu/pub/db/dbex04hint/ex04hint.html 
+
+   Note: Please do not use Tuple relational calculus examples in OHP1ex.ps P19-23!!!
+
+
+2. QBE ref OHP1ex P19-22
+
+
+◎ Submission
+
+report4.txt
+
+----------------ex4.src -------------------
+
+
+-----------------hw4-------------------------

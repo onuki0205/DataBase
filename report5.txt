@@ -1,0 +1,22 @@
+Home work 5
+s1260027 Shunsuke
+
+Q1
+    (a)
+    (b)
+    (c)
+
+    1.project(restrict (J) (city='London')) (jnum)
+Q2
+    (a)
+    (b)
+      
+       COURSE   |    TEACHER    |     S#    |     SNAME     |    GRADE
+    ------------+---------------+-----------+---------------+---------
+        Maths   |    Hatashi    |  s201000  |   NakaMura    |      A
+        Maths   |    Hatashi    |  s102000  |     Kato      |      A
+         DB     |    Billard    |  s100000  |     Saito     |      A
+         DB     |    Billard    |  s200000  |    Yamada     |      A
+       Physics  |     Mori      |  s200000  |    Yamada     |      A
+         OS     |    Billard    |  s100000  |     Saito     |      A
+         OS     |    Billard    |  s200000  |    Yamada     |      A

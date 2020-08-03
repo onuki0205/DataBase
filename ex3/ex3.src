@@ -1,0 +1,111 @@
+
+display (s)
+display (p)
+display (j)
+display (sp)
+display (spj)
+
+##p76 6.5.3 Get SNAME who supply ALL parts.
+
+temp = project (sp) (snum,pnum)
+temp1 = project (p) (pnum)
+temp2 = sql_divide (temp) (temp1)
+temp3 = join (s) (temp2) (s.snum=temp2.num)
+display (project (temp3) (sname))
+delrel temp
+delrel temp1
+delrel temp2
+delrel temp3
+
+##p82 6.5.6 Get SNAME who do not supply P2.
+
+temp = project (s) (snum)
+temp1 = project (restrict (sp) (pnum='P2')) (snum)
+temp2 = (temp) minus (temp1)
+display (project (join (s) (temp2) (s.snum=temp2.snum)) (sname))
+delrel temp
+delrel temp1
+delrel temp2
+
+#p95-96 6.19 Get all S#,P#,J# that are NOT ALL co-located.
+
+temp=duplicate (s)
+rename (temp.city) (scity)
+temp1=duplicate (p)
+rename (temp1.city) (pcity)
+temp2=duplicate (j)
+rename (temp2.city) (jcity)
+temp3=(temp) product (temp1)
+temp4=(temp3) product (temp2)
+temp5=restrict (temp4) ((scity<>pcity)or(pcity<>jcity)or(jcity<>scity) )
+display( project (temp5) (snum,pnum,jnum))
+delrel temp
+delrel temp1
+delrel temp2
+delrel temp3
+delrel temp4
+delrel temp5
+
+#p109 6.25 Get J# for projects supplied by at least one supplier NOT in the same city.
+
+temp=duplicate (s)
+rename (temp.city) (scity)
+temp1=duplicate (j)
+rename (temp1.city) (jcity)
+temp2=join (temp) (spj) (temp.snum=spj.snum)
+temp3=join (temp2) (temp1) (temp2.jnum=temp1.jnum)
+temp4=restrict (temp3) (scity<>jcity)
+temp5=project (temp4) (jnum)
+display temp5
+delrel temp
+delrel temp1
+delrel temp2
+delrel temp3
+delrel temp4
+delrel temp5
+
+#p125 6.35
+
+temp = join (p) (spj) (p.pnum = spj.pnum)
+temp1=restrict (temp) (color='GREEN')
+temp2=duplicate (spj)
+rename (temp1.pnum) (pno)
+display (project (join (temp1) (temp2) (temp1.snum=temp2.snum)) (pno))
+delrel temp
+delrel temp1
+delrel temp2
+
+
+#p130 6.40 Get J# for projects NOT supplied with any RED part by any LONDON supplier.
+
+temp = project (j) (jnum)
+temp1 = restrict (p) (color='Red')
+temp2 = restrict (s) (city='London')
+temp3 = join (temp1) (spj) (temp1.jnum =spj.jnum)
+temp4 = join (temp3) (temp2) (temp3.snum =temp2.snum)
+display ((temp) minus (project (temp4) (jnum)))
+delrel temp
+delrel temp1
+delrel temp2
+delrel temp3
+delrel temp4
+
+#p133 6.41 Get J# for projects supplied ( ONLY ) by S2.
+
+temp=restrict (spj) (snum<>'S2')
+temp1=project (temp) (jnum)
+temp2=project (j) (jnum)
+temp3=(temp2)minus(temp1)
+display temp3
+delrel temp
+delrel temp1
+delrel temp2
+delrel temp3
+
+#p138 6.44 Get J# for projects supplied with at least ALL parts AVAILABLE from S2.
+
+temp = restrict (spj) (snum<>'S2')
+temp1=project (temp) (jnum)
+display (temp1)
+delrel temp
+delrel temp1

@@ -1,0 +1,59 @@
+
+    
+ :::
+ :::::template.ddl:::::          Lectures set part II  :::::::::::
+ :::::
+ ::::: Buy-sell Database :: Country, Item, Company, Import-items, Available-items 
+ :::::
+ :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+
+    CREATE TABLE COUNTRY(
+    CNO         char(3) NOT NULL PRIMARY KEY,
+    CNAME       char(15),
+    STATUS      int,
+    MAINCITY    char(15)
+    Primary Key (CNO)
+     ) ;
+
+
+    CREATE TABLE ITEM(
+    ITEMNO      char(5) NOT NULL,
+    INAME       char(20),
+    COLOR       char(6),
+    WEIGHT      int(5),
+    SIZE        int(9),
+    PORTCITY    char(15) ,
+
+    Primary Key (ITEMNO) ) ;
+
+
+
+    CREATE TABLE COMPANY(
+    COMPNO         CHAR(3) NOT NULL PRIMARY KEY,
+    COMPNAME       CHAR(20),
+    CITY           CHAR(15) ) ;
+
+
+    CREATE TABLE IMPORT-ITEMS(
+    CNO         CHAR(3) NOT NULL,
+    ITEMNO      CHAR(5) NOT NULL,
+    NUMBER      INT(6)   ,
+    PRIMARY KEY ( CNO, ITEMNO ) ) ;
+
+
+    CREATE TABLE AVAILABLE-ITEMS(
+    CNO         CHAR(3) NOT NULL,
+    ITEMNO      CHAR(5) NOT NULL,
+    COMPNO      CHAR(3) NOT NULL,
+    NUMBER      INT ,
+
+    PRIMARY KEY ( CNO, ITEMNO, COMPNO ) ) ;
+
+
+
+
+ :::::::
+

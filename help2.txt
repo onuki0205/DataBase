@@ -1,0 +1,97 @@
+file:///home/professor/w-chu/pub/db/help2.txt
+
+◎ Exercise 2 (P6) : submission
+
+1. Create your answers for Q1-33 in animals.list to a.src
+cd
+mkdir ~/DB/src
+cd ~/DB/src
+cp /public/public/db2/animals.list .
+
+emacs a.src&
+
+================ a.src ================================
+#  1. Destroy Old Tables animals
+delrel animals
+delrel rooms
+delrel weights
+
+#  2.(a) Create New Table animals
+relation (animals) ((animal,string,6),(sex,string,4),(color,string,5))
+
+
+
+......
+#29  divide    ref OHP1.ps P45,
+# ref file:///home/professor/w-chu/pub/db/divsion-leap.help
+
+
+# π sex, room ( )  ÷ π room( )
+
+
+#30  ref OHP1.ps  6.37
+
+   ......
+
+# 33.
+   ......
+
+===============================================
+
+2. Make a response file "result" using script command
+
+cd
+cp ~/DBMS/source/a.src ~/leap-1.2.5.2/database/date/source/.
+script result         <<<<<<<<<<<<
+
+cd ~/leap-1.2.5.2
+./run
+use date
+@ a
+quit
+
+
+exit                   <<<<<<<<<<
+
+more result
+
+
+◎ Homework 2(P10-12):  submit next week class(Thu.)
+Q1, Q2, refer hw1
+
+Q3  6.5.4 div
+    a) answer
+    b) leap commands
+
+Q4 ref OHP1.ps P15 - 39 database operations
+   join operation: join with all common attributes between tables
+
+◎ Submission
+
+report2.txt
+
+----------------ex2 a.src -------------------
+
+
+-----------------hw2-------------------------
+
+◎ Supplement
+
+1. division-leap-help.txt (using leap)
+
+2.  Relational Algebra symbols
+
+    SELECT(σ)                      sigma
+    Projection(π)                  pi
+    Rename (ρ)                     delta
+    Union operation (∪)
+    Set Difference (-)
+    Intersection (∩ )
+    Cartesian product(X)
+    Join operation denoted by ⋈     join
+    div   ÷
+    
+    refer link: 
+
+    1. Mathematical operators and symbols in Unicode
+       https://en.wikipedia.org/wiki/Mathematical_operators_and_symbols_in_Unicode

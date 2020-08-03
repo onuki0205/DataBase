@@ -1,0 +1,69 @@
+
+display (s)
+display (p)
+display (j)
+display (sp)
+display (spj)
+
+##p76 6.5.3 Get SNAME who supply ALL parts.
+
+display (project (join (s) (sql_divide (project (sp) (snum,pnum)) (project (p) (pnum))) (s.snum=temp.num)) (sname))
+
+##p82 6.5.6 Get SNAME who do not supply P2.
+
+display (project (join (s) ((project (s) (snum)) minus (project (restrict (sp) (pnum='P2')) (snum))) (s.snum=temp2.snum)) (sname))
+
+#p95-96 6.19 Get all S#,P#,J# that are NOT ALL co-located.
+
+temp=duplicate (s)
+temp1=duplicate (p)
+temp2=duplicate (j)
+rename (temp.city) (scity)
+rename (temp1.city) (pcity)
+rename (temp2.city) (jcity)
+display( project (restrict (((temp) product (temp1)) product (temp2)) ((scity<>pcity)or(pcity<>jcity)or(jcity<>scity))) (snum,pnum,jnum))
+delrel temp
+delrel temp1
+delrel temp2
+
+
+#p109 6.25 Get J# for projects supplied by at least one supplier NOT in the same city.
+
+temp=duplicate (s)
+temp1=duplicate (j)
+rename (temp.city) (scity)
+rename (temp1.city) (jcity)
+temp2=join (temp) (spj) (temp.snum=spj.snum)
+display (project (restrict (join (temp2) (temp1) (temp2.jnum=temp1.jnum)) (scity<>jcity)) (jnum))
+delrel temp
+delrel temp1
+delrel temp2
+
+#p125 6.35
+
+temp1=restrict (join (p) (spj) (p.pnum = spj.pnum)) (color='GREEN')
+temp2=duplicate (spj)
+rename (temp1.pnum) (pno)
+display (project (join (temp1) (temp2) (temp1.snum=temp2.snum)) (pno))
+delrel temp
+delrel temp1
+delrel temp2
+
+
+#p130 6.40 Get J# for projects NOT supplied with any RED part by any LONDON supplier.
+
+temp1 = join (temp = restrict (p) (color='Red')) (spj) (temp.jnum =spj.jnum)
+display ((project (j) (jnum)) minus (project (join (join (temp2 = restrict (p) (color='Red')) (spj) (temp2.jnum =spj.jnum)) (temp3 = restrict (s) (city='London')) (temp3.snum =temp2.snum)) (jnum)))
+delrel temp
+delrel temp1
+delrel temp2
+delrel temp3
+
+
+#p133 6.41 Get J# for projects supplied ( ONLY ) by S2.
+
+display (project (j) (jnum))minus(project (restrict (spj) (snum<>'S2')) (jnum))
+
+#p138 6.44 Get J# for projects supplied with at least ALL parts AVAILABLE from S2.
+
+display (project (restrict (spj) (snum<>'S2')) (jnum))

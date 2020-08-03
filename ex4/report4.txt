@@ -1,0 +1,49 @@
+Home work 4
+s1260027 Shunsuke
+
+(a) exercise 6.15
+    clculus : {<S#> | ∃P#,#J,QTY(<S#,P#,J#,QTY>∈SPJ ∧J# = 'J1')}
+
+    QBE : | SPJ  |  S#  |  P#  |  J#  |  QTY  |
+          +------+------+------+------+-------+
+          |      |  .P  |      |  J1  |       |
+(b) exercise 6.17
+    clculus : {<COLOR,CITY> | ∃P#,PNAME,WEIGHT(<S#,PNAME,COLOR,WEIGHT,CITY>∈P}
+
+    QBE : |    P   |   P#   |  PNAME  |  COLOR  | WEIGHT |  CITY  |
+          +--------+--------+---------+---------+--------+--------+
+          |        |        |         |   .P    |        |   .P   |
+(c) exercise 6.32
+    clculus : {<COLOR> | ∃P#,PNAME,WEIGHT,CITY(<P#,PNAME,COLOR,WEIGHT,CITY>∈P ∧∃S#,J#,QTY(<S#,P#,J#,QTY>∈SPJ ∧S# = 'S1'))}
+
+    QBE : 
+          | SPJ  |  S#  |  P#  |  J#  |  QTY  |
+          +------+------+------+------+-------+
+          |      |  S1  |  _x  |      |       |
+
+          |    P   |   P#   |  PNAME  |  COLOR  | WEIGHT |  CITY  |
+          +--------+--------+---------+---------+--------+--------+
+          |        |   _x   |         |   .P    |        |        |
+(d) exercise 6.33
+    clculus : {<P#> | ∃S#,J#,QTY(<S#,P#,J#,QTY>∈SPJ ∧∃JNAME,CITY(<J#,JNAME,CITY>∈J ∧CITY = 'LONDON'))}
+
+    QBE :
+          | SPJ  |  S#  |  P#  |  J#  |  QTY  |
+          +------+------+------+------+-------+
+          |      |      |  .P  |  _x  |       |
+
+          |   J   |   J#   |  JNAME  |  CITY  |
+          +-------+--------+---------+--------+
+          |       |   _x   |         | London |
+    
+(e) exercise 6.34
+    clculus : {<J#> | ∃S#,P#,QTY,(<S#,P#,J#,QTY>∈SPJ ∧∃S#,J#,QTY(<S#,P#,J#,QTY>∈SPJ ∧S# = 'S4'))}
+
+    QBE :
+          |  SP  |  S#  |  P#  |  QTY  |
+          +------+------+------+-------+
+          |      |  S4  |  _x  |       |
+
+          | SPJ  |  S#  |  P#  |  J#  |  QTY  |
+          +------+------+------+------+-------+
+          |      |      |  _x  |  .P  |       |

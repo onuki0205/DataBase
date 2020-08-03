@@ -128,27 +128,27 @@ display (project (restrict (join (rooms) (weights) (rooms.animal=weights.animal)
 
 temp = join (animals) (rooms) (animals.animal = rooms.animal)
 display (project (restrict (join (temp) (weights) (temp.animal = weights.animal)) ((color='brown') and (room='R1'))) (weight))
-delrel temp
 
 # 24. UPDATE : write animals (make a new animals table) BY CHANGING ALL sex TO f
 #[ Save the animals file as s26 (s26 = duplicate (animals) ) ]
 
+delrel temp
 temp = duplicate(animals)
 display (update (temp) (sex='m') (sex='f'))
-delrel temp
 
 # 25. REPEAT 24.
 
+delrel temp
 temp = duplicate (animals)
 display (update (temp) (sex='m') (sex='f'))
 delrel animals
 animals = duplicate(temp)
-delrel copy_animals
+delrel temp
 
 # 26. UPDATE all animals
 
 temp = duplicate (animals)
-update (temp) () (color='black')
+update (temp) (animal > '0000') (color='black')
 update (temp) (animal='101') (animal='102')
 update (temp) (animal='92') (animal='93')
 update (temp) (animal='88') (animal='89')
@@ -203,25 +203,25 @@ display (weights)
 
 # 29.  31. GET THE SEX WHICH CAN BE FOUND IN ALL ROOMS (HINT: USE join, project, divide)
 
-display (sql_divide (join (animalls) (rooms) (animals.animal = rooms.animal)) (project (join (animalls) (rooms) (animals.animal = rooms.animal)) (sex)))
+temp = join (animals) (rooms) (animals.animal = rooms.animal)
+temp2 = project (temp) (sex) 
+display (sql_divide (temp) (temp2))
+delrel temp
+delrel temp2
 
 
 # 30.   GET THE LARGEST ANIMAL NUMBER IN ANIMALS.TBL (HINT: USE duplicate, rename,
 
 temp1 = project(animals)(animal)
-temp2 = project(animals)(animal)
+temp2 = duplicate(temp1)
 rename(temp2.animal)(animal2)
 temp3 = (temp1)product(temp2)
-temp4 = project(restrict(temp3)(animal < animal2))(animal)
-temp5 = project(animals)(animal)
-temp6 = (temp5)minus(temp4)
-display(rename(temp6.animal)(MAX))
+temp4 = (project(animals)(animal))minus(project(restrict(temp3)(animal < animal2))(animal))
+display(rename(temp4.animal)(MAX))
 delrel temp1
 delrel temp2
 delrel temp3
 delrel temp4
-delrel temp5
-delrel temp6
 
 # 31.  Show Color and weight of animals in room R1 (Hint : use join and restrict )
 
@@ -231,7 +231,8 @@ temp2 = join(temp1)(weights)(temp1.animal = weights.animal)
 display(project(temp2)(room, color, weight))
 delrel temp
 delrel temp1
-delrel temp1
+delrel temp2
+
 
 # 32.  Show a list of animals in room R1 
 
@@ -245,7 +246,7 @@ display(restrict(animals)(animal<'25'))
 
 # (b) Change data in animals table.
 delrel animals
-relation(animals)((animal,integer,6),(sex,string,4),(color,string,5))
+relation(animals)((animal,string,6),(sex,string,4),(color,string,5))
 add (animals) (000013, m, brown)
 add (animals) (000021, f, brown)
 add (animals) (000022, m, black)
@@ -259,7 +260,7 @@ display(animals)
 
 # (c) Find animal with animal < 25
 delrel animals
-relation(animals)((animal,integer,6),(sex,string,4),(color,string,5))
+relation (animals)((animal,string,6),(sex,string,4),(color,string,5))
 add (animals) (13, m, brown)
 add (animals) (21, f, brown)
 add (animals) (22, m, black)

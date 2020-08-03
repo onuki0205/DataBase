@@ -1,0 +1,81 @@
+  file:///home/professor/w-chu/pub/db/help3.txt
+
+◎ Exercise 3 (P13): submission
+   1. add spj, j relations in leap
+   
+   cp /public/public/db2/initspj.dat ~/leap-1.2.5.2/database/date/source/initspj.src
+   cp /public/public/db2/initj.dat ~/leap-1.2.5.2/database/date/source/initj.src
+
+   cd ~/leap-1.2.5.2
+   ./run
+   use date
+   @ initj
+   @ initspj
+
+   list
+
+
+   questions see /public/public/db2/OHP1.ps(OHP1.ps P72 - 145)
+   
+   seta(1,4,7,0), setb(2,5,8), setc(others)
+   
+   please edit ex3.src
+   # question
+   leap commands
+
+   #
+   ......
+
+
+◎ Homework 3 (P16):  submission
+  
+☆ Q1: Algebra を書いてください (OHP1.ps P17-51)
+
+   ヒント(以下の講義のOHPのページを参照してください)
+
+   Query1: [18] project の書き方
+	project するものが複数になっても同じです。	
+
+   Query2: [37] join の書き方
+	Algebra では join する条件を書きません。
+
+   Query3:Query4:Query5:
+        [20, 23] restrict , Rename の書き方
+
+
+☆ join → restrict → project の順にステップを踏みながら考えて下さい。判りやすいと思います。
+
+   Πattributes-name σconditions(tablei  ⋈   tablej ...)
+
+
+
+◎ Submission
+
+report3.txt
+
+----------------ex3.src -------------------
+
+
+-----------------hw3-------------------------
+
+◎ Supplement
+
+1.  division-leap-help.txt (using leap )
+
+2.  Relational Algebra symbols
+
+    SELECT(σ)                      sigma
+    Projection(π)                  pi
+    Rename (ρ)                     delta
+    Union operation (∪)
+    Set Difference (-)
+    Intersection (∩ )
+    Cartesian product(X)
+    Join operation denoted by ⋈     join
+    div   ÷
+    
+   refer links :
+
+   1. Mathematical operators and symbols in Unicode
+      https://en.wikipedia.org/wiki/Mathematical_operators_and_symbols_in_Unicode
+

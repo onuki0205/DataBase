@@ -1,0 +1,109 @@
+file:///home/professor/w-chu/pub/db/help5.txt
+
+◎ Homework 5 (P24-25): Submission
+
+◇ Q1: (a) Algebra を書いてください(Ref HW3)
+       Lecture OHP1  6.42 → divide を使う。
+       Lecture OHP1 [39,45] divide を参照。
+
+       (b) 上記の shell SQL(leap) を書く
+       (c) 上記の shell SQL (Expression) 出来るだけ短く書く
+
+
+◇ Q2: Lecture OHP [147- 150] 参照。
+
+       (a) ER-Daigram を作成する。
+       Hint: step1 database を３つのdatabase にわけてみる。
+
+       (b) Functional Dependencies = FDs を見つける。
+	   各database について求める。
+	   場合によっては、２つの attribute を組み合わせて使う。
+
+◇ Q3: (a) dense index file をつくる。
+	   (inverted file: 転置ファイル) 
+	   Lecture OHP [181, 183] 参照。
+	   
+	   用語: index file
+		 名検引キーがその文書に含まれているかを記録したファイ
+		 ルのこと。転置ファイルを用いることにより、高速検索が
+		 可能となる。
+
+
+	(b) (a)の dense index file と比較して書く。
+	    Non dense index = sparse index
+
+	(c) B+ tree  Lecture OHP[175, 190] 参照。
+	
+	    Order: 3 (max 3 children/node, max 2 keys/node, min 1 key/node)
+	    Note: ツリー構造は挿入の順序に依存します。
+	          すべてのデータはリーフノードに保持する。
+	    
+	    B+ tree は検引構造の一つ。a,b,cの順に挿入する。
+	    
+		 b
+             ／     ＼
+	    ↓        ↓
+	   a  b   →   c
+
+	    上記の様に tree を作成していく。
+	    ただし、 a < b < c の関係が成り立つようにする。
+
+	(d) B-tree Lecture OHP [190 〜 197] 参照。
+         Order: 5 (max 5 children/node, max 4 keys/node, min 2 key/node)
+
+◎ Exercise 5 (P26-31):  submission
+
+#◇ Q1: (b) domains (data types)[Ref Q2.]
+        example:  char(3): CNO,COMPNO
+
+        (d) Make a list of Attributes with common data types (domains)[OHP1 P.168]
+        example: SNO : S.SNO, SP.SNO,  SPJ.SNO
+
+◇ Q2: create SQLschema.ddl for bank database
+       Bank Database ( ref. end of OHP1ex.ps P71-74).
+       a) primary key for each table
+       b) Attribute constraints
+       c) Table constraints
+
+
+create table example:
+
+CREATE TABLE AVAILABLE-ITEMS(
+    CNO         char(3) NOT NULL,
+    ITEMNO      char(5) NOT NULL,
+    COMPNO      char(3) NOT NULL,
+    NUMBER      int CHECK ( NUMBER > 0 ),
+    Primary Key   (CNO, ITEMNO, COMPNO)
+) ;
+
+
+# ◇ Q3, Q4, Q5  postgreSQL : No Submission
+
+1. Install postgreSQL ref: /public/public/db2/RunPostgresSTD3
+
+2. How to use postgreSQL
+
+pg_ctl -D dbs1220XXX  start    //start postgreSQL server
+
+psql -p abXX  s1220XXX         // Use PostgreSQL at port abXX
+\i SQLschema.ddl              //  SQLschema.ddl  created in Q2
+\d
+\d tablename
+select * from tablename;
+
+\l
+\q
+
+pg_ctl -D dbs1220XXX  stop    // stop postgreSQL server
+
+  
+
+◎ Submission
+
+report5.txt
+
+----------------ex5(Q1, Q2(SQLschema.ddl) ) -------------------
+
+
+-----------------hw5-------------------------------------------
+
