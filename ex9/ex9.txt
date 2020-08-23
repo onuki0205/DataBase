@@ -1,0 +1,55 @@
+Q9   Find all customers, who have loan or an account, or both at a bank.
+
+    Select distinct customer_name from depositor
+    union
+    Select distinct customer_name from borrower;
+
+
+Q10  Find all customers, who have loan or an account, or both at a bank (please show duplicates, if any).
+
+    Select distinct customer_name from depositor
+    union all
+    Select distinct customer_name from borrower;
+
+
+Q11  Find all customers, who have both a loan and an account, at a bank.
+
+    Select distinct customer_name from depositor
+    intersect
+    Select distinct customer_name from borrower;
+
+
+Q12  Find all customers, who have either a loan or an account, at ’Perryridge’ branch).
+
+    Select customer_name from account,depositor
+    where account.account_number=depositor.account_number and branch_name=’Perryridge’
+    union
+    Select customer_name from borrower,loan
+    where loan.loan_number=borrower.loan_number and branch_name='Perryridge';
+
+
+Q13  Find all customers, who have both a loan and an account, at a bank and his loan.amount > account.balance ).
+
+    Select distinct customer_name from account
+    join depositor on account.account_number=depositor.account_number
+    join borrower on depositor.customer_name=borrower.customer_name
+    join loan on borrower.loan_number=loan.loan_number
+    where loan.amount > account.balance;
+
+
+Q14  Find names of all branches, that have assetts greater than at least one branch located in ”Brooklyn” .
+
+    select branch_name from branch 
+    where assetts >
+    (select min(assetts) from branch where branch_city = 'Brooklyn');
+
+
+Q15  Find names of customers, who have an account but no loan at the bank.
+
+    select customer_name from depositor
+    except
+    select customer_name from borrower;
+
+Q16  List the entire loan relation in descending order of amount. If many loans have same amount. Please sort them in ascending order of loan number.
+
+    Select * from loan order by amount DESC, loan_number ASC;

@@ -1,0 +1,11 @@
+# This file is used by compile.sh and dbquery.sh to 
+# setup the java environment for the SDK 1.4.2
+
+# Set the environment 
+JAVA_HOME="/usr/local/java/jdk"
+JAVA_PATH=$JAVA_HOME
+CLASSPATH=$JAVA_HOME/lib
+PATH=$JAVA_HOME/bin:$PATH
+
+# Set the path to the JDBC driver
+PGSQL_JDBC=/usr/local/pgsql/share/java/postgresql.jar

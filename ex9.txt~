@@ -1,0 +1,8 @@
+Q9   Find all customers, who have loan or an account, or both at a bank.
+Q10  Find all customers, who have loan or an account, or both at a bank (please show duplicates, if any).
+Q11  Find all customers, who have both a loan and an ac- count, at a bank.
+Q12  Find all customers, who have either a loan or an account, at ’Perryridge’ branch).
+Q13  Find all customers, who have both a loan and an account, at a bank and his loan.amount > account.balance ).
+Q14  Find names of all branches, that have assetts greater than at least one branch located in ”Brooklyn” .
+Q15  Find names of customers, who have an account but no loan at the bank.
+Q16  List the entire loan relation in descending order of amount. If many loans have same amount. Please sort them in ascending order of loan number.

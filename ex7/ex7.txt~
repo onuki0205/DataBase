@@ -1,0 +1,8 @@
+Q1 Find Account Number and Customer City, who have an Account in ACCOUNT relation.
+    Select account_number, customer_city from customer, depositor where customer.customer_name=depositor.customer_name.
+Q2 Find Customer Names and Branch Names of all Customers with an Account.
+    Select customer_name, branch_name from borrower,loan where borrower.loan_number=loan.loan_number;
+Q3 Find Account Number, Names of Customers and Branch City for all, who have an Account in ACCOUNT relation.
+    Select account_number, customer_name, branch_city from account join depositor on account.account_number=depositor.account_number join branch on branch.branch_name=account.branch_name;
+Q4 Find Customer Names (and City Names), if the customer has any bank branch in his/her city.
+    Select customer_name from account join depositor on account.account_number=depositor.account_number join branch on branch.branch_name=account.branch_name;

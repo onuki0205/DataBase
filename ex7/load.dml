@@ -1,0 +1,59 @@
+CREATE TABLE c(
+    cno         char[3] NOT NULL,
+    cname       char[10],
+    cstatus     int[3],
+    CONSTRAINT c_pk Primary Key (cno)
+);
+
+CREATE TABLE I(
+    Ino         int[5] NOT NULL,
+    Iname       char[10],
+    Color       char[6],
+    Weight      int[3],
+    CONSTRAINT I_pk Primary Key (Ino)
+);
+
+CREATE TABLE c-I(
+    cno         char[3] NOT NULL,
+    Ino         int[5] NOT NULL,
+    CONSTRAINT c-I_pk Primary Key (cno,Ino)
+);
+
+
+INSERT INTO c VALUES
+('C1','Blake',20);
+
+INSERT INTO c VALUES
+('C2','Jones',10);
+
+INSERT INTO c VALUES
+('C3','Clark',10);
+
+
+INSERT INTO I VALUES
+(21,'P1','Red',12);
+
+INSERT INTO I VALUES
+(72,'P2','Brown',10);
+
+INSERT INTO I VALUES
+(86,'P3','Blue',12);
+
+INSERT INTO I VALUES
+(53,'P4','Yellow',10);
+
+
+INSERT INTO c-I VALUES
+('C1',21);
+
+INSERT INTO c-I VALUES
+('C1',72);
+
+INSERT INTO c-I VALUES
+('C2',86);
+
+INSERT INTO c-I VALUES
+('C3',53);
+
+INSERT INTO c-I VALUES
+('C3',21);

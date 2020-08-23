@@ -1,0 +1,26 @@
+Q17 Select branch_name,AVG(balance) from account where branch_name='Perryridge';
+
+Q18 Select branch_name,AVG(balance) from account where branch_name='Perryridge' group by branch_name;
+
+Q19 Select branch_name,count(account_name) from account group by branch_name;
+
+Q20 Select branch_name,count(distinct customer_name) from depositor,account where depositor.account_number=account.account_number group by branch_name;
+
+Q4 Select customer_name from customer where customer_city in (Select branch_city from branch);
+
+
+Q9  Select distinct customer_name from depositor
+    union
+    Select distinct customer_name from borrower;
+    Select customer_name from customer where customer_name in (Select distinct customer_name from depositor union Select distinct customer_name from borrower);
+
+Q11 Select distinct customer_name from depositor
+    intersect
+    Select distinct customer_name from borrower;
+
+Select customer_name from depositor where customer_name in (Select customer_name from borrower);
+
+Q15 select customer_name from depositor
+    except
+    select customer_name from borrower;
+    Select distinct customer_name from depositor where customer_name not in (Select customer_name from borrower);
