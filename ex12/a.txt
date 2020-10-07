@@ -1,7 +1,3 @@
-Select customer_name, branch_name from depositor, account
-where depositor.customer_name=account.customer_name
-and not exist (Select branch_name from branch where branch_name=’Brooklyn’);
-
 SELECT distinct S.customer_name FROM depositor as S
 WHERE not exists (
      (SELECT branch_name
@@ -12,3 +8,4 @@ WHERE not exists (
        FROM depositor as T, account as R
        WHERE T.account_number = R.account_number and
              S.customer_name = T.customer_name ));
+
